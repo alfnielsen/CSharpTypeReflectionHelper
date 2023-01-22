@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CSharpTypeReflectionHelper</id>
+    <version>1.0.0</version>
+    <authors>CSharpTypeReflectionHelper</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net7.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="/Users/alfnielsen/Code/Intellis/be/CSharpTypeReflectionHelper/CSharpTypeReflectionHelper/bin/Debug/net7.0/CSharpTypeReflectionHelper.dll" target="lib/net7.0/CSharpTypeReflectionHelper.dll" />
+  </files>
+</package>
