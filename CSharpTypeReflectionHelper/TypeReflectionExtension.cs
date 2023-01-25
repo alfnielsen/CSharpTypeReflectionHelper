@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -57,4 +58,39 @@ public static class TypeReflectionExtension
         return type.IsValueType || (!type.IsAbstract && type.GetConstructor(Type.EmptyTypes) != null);
     }
 
+    
+    /// <summary>
+    /// Does teh Type implement IParsable<>
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    public static bool IsIParsable(this Type type)
+    {
+        return type.GetInterfaces().Any(c => c.IsGenericType && c.GetGenericTypeDefinition() == typeof(IParsable<>));   
+    }
+
+    /// <summary>
+    /// Does teh Type implement INumber<>
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    public static bool IsINumber(this Type type)
+    {
+        return type.GetInterfaces().Any(c => c.IsGenericType && c.GetGenericTypeDefinition() == typeof(INumber<>));   
+    }
+
+
+    /// <summary>
+    /// Provide a Parse method for all IParseable types.
+    /// This includes all primitive types, enums. (numbers and enums)
+    /// </summary>
+    /// <param name="s"></param>
+    /// <param name="provider"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public static T Parse<T>(this string s, IFormatProvider? provider = null)
+        where T : IParsable<T>
+    {
+        return T.Parse(s, provider);
+    }
 }
