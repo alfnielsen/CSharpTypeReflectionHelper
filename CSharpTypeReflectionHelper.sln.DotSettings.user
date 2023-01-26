@@ -1,4 +1,0 @@
-﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=458fa103_002D51f9_002D4778_002D997c_002Dff890017b32d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TypeReflectionTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;ProjectFile&gt;5E05D54C-EB82-464C-80FB-FABB4E317EC7/d:TypeReflection/f:TypeReflectionTest.cs&lt;/ProjectFile&gt;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
