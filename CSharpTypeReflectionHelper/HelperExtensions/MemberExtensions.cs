@@ -1,8 +1,8 @@
 using System.Reflection;
 
-namespace CSharpTypeReflectionHelper;
+namespace CSharpTypeReflectionHelper.HelperExtensions;
 
-public static class MemberHelperExtensions
+public static class MemberExtensions
 {
     public static IEnumerable<MemberInfo> GetDeclaredMembers(this Type type) => type.GetTypeInfo().DeclaredMembers;
     

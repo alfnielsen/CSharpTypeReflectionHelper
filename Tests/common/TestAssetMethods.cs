@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using CSharpTypeReflectionHelper;
+using CSharpTypeReflectionHelper.HelperExtensions;
 
 namespace Tests.common;
 
@@ -38,7 +39,7 @@ public static class TestAssetMethods
         string? objectName = null
     )
     {
-        var oName = objectName?.ReplaceRegex(".*__",".") ?? string.Empty;
+        var oName = objectName?.ReplaceRegExp(".*__",".") ?? string.Empty;
         ListAsset(types, except, predicate, (index, name, result) => $"{testName}[{index}]: Validation for {oName}{name} excepted {except} but was {result}.");
     }    
     /// Take a list of types to validate:
@@ -53,7 +54,7 @@ public static class TestAssetMethods
         foreach (var item in items)
         {
             var result = validatePredicate(item);
-            var itemName = item.Name.ReplaceRegex(".*__","") ?? "NoName";
+            var itemName = item.Name.ReplaceRegExp(".*__","") ?? "NoName";
             var msg = failureMsgPredicate?.Invoke(index, itemName, result) ?? $"[{index}] Validation for {itemName} excepted {except} but was {result}.";
             Assert.That(result, Is.EqualTo(except), msg);
             index++;
@@ -68,7 +69,7 @@ public static class TestAssetMethods
         string? objectName = null
     )
     {
-        var oName = objectName?.ReplaceRegex(".*__",".") ?? string.Empty;
+        var oName = objectName?.ReplaceRegExp(".*__",".") ?? string.Empty;
         ListAsset(types, except, predicate, (index, name, result) => $"{testName}[{index}]: Validation for {oName}{name} excepted {except} but was {result}.");
     }    
     /// Take a list of types to validate:
@@ -83,7 +84,7 @@ public static class TestAssetMethods
         foreach (var item in items)
         {
             var result = validatePredicate(item);
-            var itemName = item?.GetType().Name.ReplaceRegex(".*__","") ?? "NoName";
+            var itemName = item?.GetType().Name.ReplaceRegExp(".*__","") ?? "NoName";
             var msg = failureMsgPredicate?.Invoke(index, itemName, result) ?? $"[{index}] Validation for {itemName} excepted {except} but was {result}.";
             Assert.That(result, Is.EqualTo(except), msg);
             index++;

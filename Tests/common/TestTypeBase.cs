@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CSharpTypeReflectionHelper;
+using CSharpTypeReflectionHelper.HelperExtensions;
 
 namespace Tests.common;
 
@@ -18,7 +19,7 @@ public abstract class TestTypeBase
     
     protected MemberTest MembersOf(Type type)
     {
-        var testName = type.Name.ReplaceRegex(".*__",""); 
+        var testName = type.Name.ReplaceRegExp(".*__",""); 
         return new MemberTest(testName, type);
     }
     
@@ -29,7 +30,7 @@ public abstract class TestTypeBase
 
     protected PropertyTest PropertiesOf(Type type)
     {
-        var testName = type.Name.ReplaceRegex(".*__", "");
+        var testName = type.Name.ReplaceRegExp(".*__", "");
         return new PropertyTest(testName, type);
     }
 
@@ -39,7 +40,7 @@ public abstract class TestTypeBase
     }
     protected PropertyTest PropertiesOf<T>()
     {
-        var testName = typeof(T).Name.ReplaceRegex(".*__","");
+        var testName = typeof(T).Name.Replace(".*__","");
         return new PropertyTest(testName, typeof(T));
     }
     
